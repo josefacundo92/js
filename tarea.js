@@ -115,28 +115,28 @@ class Carrito {
         this.productos = [`${producto}`]
     }
 
-    verificarProducto(nombre, precio, cantidad) {
+    verificarProducto(nombre, precio, unidades) {
 
         const arregloProductos = this.productos;
 
         for (let i = 0; i <= arregloProductos.length; i++) {
             if (nombre == arregloProductos[i]) {
-                console.log("el producto existe")
+                console.log(`el producto ${nombre} existe y tiene ${unidades} unidades`)
                 return
             }           
         }
                 
-        console.log("el producto no existe")
-        this.montoTotal += precio * cantidad;
+        console.log(`el producto ${nombre} no existe y fue agregado al carro`)
+        this.montoTotal += precio * unidades;
         this.productos.push(nombre);
     }
 }
 
 const carrito1 = new Carrito(10, "leche");
 carrito1.verificarProducto("azucar", 5, 2);
-carrito1.verificarProducto("pera", 5, 2);
-carrito1.verificarProducto("banana", 5, 2);
+carrito1.verificarProducto("cafe", 5, 2);
+carrito1.verificarProducto("azucar", 5, 2);
+carrito1.verificarProducto("gaseosa", 5, 2);
+
 
 console.log(carrito1);
-
-
